@@ -11,6 +11,13 @@
     <h1>
       <button  id="msg" onClick="window.location.reload();">Retry!</button>
     </h1>
+    <div class="hiscore">
+      <h2>Top 5 clickers</h2>
+      <h3>(on this device)</h3>
+      <button onClick="clearScores()">Clear</button>
+      <table class="scoretable">
+      </table>
+    </div>
     <style>
       #snakeboard {
         position: absolute;
@@ -196,6 +203,8 @@
         score += 10;
         // Display score on screen
         document.getElementById('score').innerHTML = score;
+        const hiscores = JSON.parse(localStorage.getItem('scores')) || [];
+        const scoreList = document.querySelector('.scoretable');  
         // Generate new food location
         gen_food();
       } else {
@@ -204,7 +213,8 @@
 
         //new test this is how to commit
       }
+      
     }
-    
+
   </script>
 </html>
